@@ -1,5 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 
 export default function ToDoItem(props){
-    return <li>{props.text}</li>;
+
+    const [line,setLine] = useState(false)
+
+    function handleClick(){
+        setLine(prevLine => !prevLine);
+    }
+
+
+    return <li onClick = {handleClick} style={{"text-decoration": line ? "line-through" : "none" }}>{props.text}</li>;
 }
